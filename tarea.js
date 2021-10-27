@@ -7,6 +7,7 @@ new Vue({
 		sApellido:'',
 		edad:'',
 		curp:'',
+		buscar:'',
 		editando:0,
 		propietarios:[
 		               {curp:'MOLA020609HYNXGDA8',nombre:'adan',Apellido1:'Moo',Apellido2:'Lugo',edad:19},
@@ -111,5 +112,22 @@ new Vue({
 
 
 
-	}
-})
+	},
+	computed:{
+		filtroPropietario:function(){
+			return this.propietarios.filter((propietario)=>{
+				return propietario.curp.toLowerCase().match(this.buscar.toLowerCase().trim())||
+				 propietario.nombre.toLowerCase().match(this.buscar.toLowerCase().trim())||
+				  propietario.Apellido1.toLowerCase().match(this.buscar.toLowerCase().trim())
+			});
+		},
+		numeroPropietario:function(){
+			var num=0;
+			num=this.propietarios.length;
+			return num;
+
+		},
+
+	},
+
+});

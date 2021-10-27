@@ -47,6 +47,13 @@
 			   </div>
 			
 		   </div>
+		   <br>
+		   <div class="row">
+		   	<div class="col-md-6">
+		   		<input type="text" class="form-control" placeholder="Escribe el nombre del propietario" v-model="buscar">
+		   	</div>
+		   	
+		   </div>
 		   <hr>
 		  <div class="row">
 			  <table class="table table-border">
@@ -60,7 +67,7 @@
 					<th>Acciones</th>
 				</thead>
 				<tbody>
-					<tr v-for="(p,index) in propietarios">
+					<tr v-for="(p,index) in filtroPropietario">
 						<td>{{index}}</td>
 						<td>{{p.curp}}</td>
 						<td>{{p.nombre}}</td>
@@ -82,6 +89,12 @@
 				</tbody>
 			 </table>
 			
+		   </div>
+		   <br>
+		   <div>
+		   	<center><h1>
+		   		El numero de propietarios es: {{numeroPropietario}}
+		   	</h1></center>
 		   </div>
 		</div>
 		
